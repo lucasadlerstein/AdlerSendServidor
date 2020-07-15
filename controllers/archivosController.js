@@ -6,7 +6,7 @@ const Enlaces = require('../models/Enlace');
 exports.subirArchivo = async (req, res, next) => {
 
     const multerConfiguracion = {
-        limits: {fileSize: req.usuario ? 1024*1024*10 : 1024*1024}, //10MB autenticado o  1MB sin cuenta
+        limits: {fileSize: req.usuario ? 1024*1024*1536 : 1024*1024*10}, //1.5GB con cuenta o 10MB sin cuenta
         storage: fileStorage = multer.diskStorage({
             destination: (req, file, cb) => {
                 cb(null, __dirname+'/../uploads')

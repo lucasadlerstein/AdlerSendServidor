@@ -3,10 +3,8 @@ require('dotenv').config({path: 'variables.env'});
 
 
 module.exports = (req, res, next) => {
-    
-// console.log(req.get('Authorization'));
 
-const authHeader = req.get('Authorization');
+    const authHeader = req.get('Authorization');
     if(authHeader){
         // Obtener token
         const token = authHeader.split(' ')[1];
