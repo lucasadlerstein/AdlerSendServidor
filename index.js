@@ -1,6 +1,8 @@
 const express = require('express');
 const conectarDB = require('./config/db');
 const cors = require('cors');
+var compression = require('compression');
+
 
 // Crear servidor
 const app = express();
@@ -18,6 +20,9 @@ const opcionesCors = {
 
 // Habilitar cors
 app.use(cors(opcionesCors));
+
+// Habilitar compression
+app.use(compression());
 
 // Puerto de la app
 const port = process.env.PORT || 4000;
