@@ -1,14 +1,14 @@
 {
   "name": "adlersendservidor",
   "version": "1.0.0",
+  "description": "AdlerSend",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./app.js",
+    "start": "node ./app.js"
+  },
   "engines": {
     "node": "14.5.0"
-  },
-  "description": "AdlerSend",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon ./index.js",
-    "start": "node ./index.js"
   },
   "author": "Lucas Adlerstein",
   "license": "ISC",

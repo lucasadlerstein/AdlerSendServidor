@@ -3,7 +3,6 @@ const conectarDB = require('./config/db');
 const cors = require('cors');
 var compression = require('compression');
 
-
 // Crear servidor
 const app = express();
 
