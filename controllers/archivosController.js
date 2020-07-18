@@ -61,7 +61,7 @@ exports.descargar = async(req, res, next) => {
     if(descargas  === 1) {
         // Eliminar entrada de DB
         req.archivo = nombre;
-        await Enlaces.findOneAndRemove(enlace.id);
+        await Enlaces.findOneAndRemove({nombre: req.params.archivo });
 
         // Eliminar el archivo
         next();

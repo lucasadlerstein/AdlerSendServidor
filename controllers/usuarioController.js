@@ -1,5 +1,5 @@
 const Usuario = require('../models/Usuario');
-const bcrypt = require('bcrypt'); 
+const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 
 exports.nuevoUsuario = async(req, res) => {
@@ -20,8 +20,8 @@ exports.nuevoUsuario = async(req, res) => {
     usuario =  new Usuario(req.body);
     
     // Pass Hash
-    const salt = await bcrypt.genSalt(10);
-    usuario.password = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSaltSync(10);
+    usuario.password = await bcrypt.hashSync(password, salt);
 
     try {
         await usuario.save();

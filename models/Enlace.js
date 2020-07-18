@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const enlacesSchema = new Schema({
-    expireAt: {
+    createdAt: {
         type: Date,
         default: Date.now,
-        index: { expires: '7 days' },
+        expires: '10080m',
     },
     url: {
         type: String,

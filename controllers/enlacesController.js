@@ -1,8 +1,7 @@
 const Enlaces = require('../models/Enlace');
 const shortid = require('shortid');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
-
 
 exports.nuevoEnlace = async (req, res, next) => {
 
@@ -28,8 +27,9 @@ exports.nuevoEnlace = async (req, res, next) => {
             enlace.descargas = descargas;
         }
         if(password){
-            const salt = await bcrypt.genSalt(10);
-            enlace.password = await bcrypt.hash(password, salt);
+            const salt = await bcrypt.genSaltSync(10);
+            enlace.password = await bcrypt.hashSync(password, salt);
+            // en vez de hash solo
         }
         enlace.autor = req.usuario.id;
     }
